@@ -1,0 +1,17 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+<session-factory>
+
+<!-- JDBC Connection> -->
+<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/HBAssignment</property>
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<property name="connection.username">root</property>
+<property name="connection.password">s1h2t2h3</property>
+
+<property name="hibernate.hbm2ddl.auto">create</property>
+<property name="hibernate.show.sql">true</property>
+
+
+</session-factory>
+</hibernate-configuration>
+
