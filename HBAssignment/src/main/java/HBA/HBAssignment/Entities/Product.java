@@ -17,15 +17,30 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="name",length=10,nullable=false)
+	@Column(name="name",length=20,nullable=false)
 	private String name;
 	@Column(name="price",nullable=false)
-	private float price;
+	private double price;
 	@Column(name="stockQuantity")
 	private int stockQuantity;
 	@ManyToOne
-	@JoinColumn(name="category_id",nullable=false)
+	@JoinColumn(name="category_id")
 	private Category category;
+	
+	public Product() {
+		this.id=0;
+		this.name=null;
+		this.price=0.0;
+		this.stockQuantity=0;
+	}
+	
+	public Product(String name, double price, int stockQuantity, Category category) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.stockQuantity = stockQuantity;
+		this.category = category;
+	}
 	public int getId() {
 		return id;
 	}
@@ -38,7 +53,7 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public void setPrice(float price) {

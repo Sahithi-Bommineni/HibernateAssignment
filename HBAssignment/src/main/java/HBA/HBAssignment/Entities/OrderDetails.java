@@ -16,11 +16,63 @@ public class OrderDetails {
 	@Column(name="quantity",nullable=false)
 	private int quantity;
 	@Column(name="price of one unit",nullable=false)
-	private float unitPrice;
+	private double unitPrice;
 	@ManyToOne
 	@JoinColumn(name="order_id")
 	private Orders order;
 	@ManyToOne
 	@JoinColumn(name="product_id")
 	private Product product;
+	
+	public OrderDetails() {
+		this.id=0;
+		this.quantity=0;
+		this.unitPrice=0.0;
+	}
+	
+	public OrderDetails(int quantity, double unitPrice, Orders order, Product product) {
+		super();
+		this.quantity = quantity;
+		this.unitPrice = unitPrice;
+		this.order = order;
+		this.product = product;
+	}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public double getUnitPrice() {
+		return unitPrice;
+	}
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+	public Orders getOrder() {
+		return order;
+	}
+	public void setOrder(Orders order) {
+		this.order = order;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	@Override
+	public String toString() {
+		return "OrderDetails [id=" + id + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", order=" + order
+				+ ", product=" + product + "]";
+	}
+	
+	
 }
